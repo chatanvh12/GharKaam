@@ -32,14 +32,14 @@ GharKaam aims to provide a one-stop digital hub where quality service meets conv
 ✅ Responsive UI for Mobile & Desktop
 
 #🛠️ Tech Stack
-Frontend: React.js / Next.js, Tailwind CSS
-Backend: Node.js, Express.js
-Database: MongoDB / PostgreSQL
+Frontend: React.js, Tailwind CSS
+Backend: Spring boot,
+Database: MongoDB / PostgreSQL / MySql
 Authentication: JWT / Firebase
 Payment Integration: Razorpay / Stripe
 Deployment: Vercel / Netlify (Frontend), Render / Heroku / AWS (Backend)
 
-#📊 Future Scope
+📊 #Future Scope
 Integrating real-time chat support
 
 AI-based service recommendations
