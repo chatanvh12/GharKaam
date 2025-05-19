@@ -2,6 +2,11 @@ import { useLocation } from "react-router-dom";
 import { Sliders2 } from "../components/Sliders2";
 import Carousel from "../components/Carausals/Carousel";
 import ServiceCard from "../components/Cards/ServiceCard";
+import CartCard from "../components/Cards/CartCard";
+import { useState } from "react";
+import { CheckIcon } from "@heroicons/react/24/outline";
+import Promise from "../components/Cards/Promise";
+import OfferCard from "../components/Cards/Offer";
 const data = {
   title: "Native Smart Locks",
   rating: 4.86,
@@ -175,13 +180,36 @@ const detailData = [
     ],
   },
 ];
-
+const cartData = [
+  {
+    id: 1,
+    title: "Fridge cleaning",
+    quantity: 8,
+    currency: "IND",
+    price: 799,
+  },
+  {
+    id: 2,
+    title: "3 visits:  De-greasing kitchen pack",
+    quantity: 8,
+    price: 3684,
+  },
+];
+const offerData = [
+  {
+    id: 1,
+    title: "Amazon cashback upto ₹50",
+    subTitle: "Via Amazon Pay balance",
+  },
+];
 export const Cart = () => {
   const location = useLocation();
   const queryParams = new URLSearchParams(location.search);
   const category = queryParams.get("category");
+  
+
   return (
-    <div className="container mx-auto max-w-7xl  mt-25 p-4">
+    <div className="mx-auto  mt-25 p-4">
       <div className="flex">
         <div className="w-3/10  sticky top-0  h-80">
           <div className=" px-4 flex flex-col gap-5">
@@ -242,19 +270,26 @@ export const Cart = () => {
             />
           </div>
           <div className="p-0 flex  mt-13">
-            <div className="w-7/12 border-t border-l border-b border-gray-300 flex flex-col gap-2 ">
+           
+            <div className="w-7/12 border border-gray-300 flex flex-col gap-2 ">
               {detailData?.map((value, key) => (
                 <div className=" p-3 rounded-s">
                   <div className="p-2 text-2xl font-bold"> {value.title}</div>
-                  {
-                    value?.data?.map((data,key)=>(
-                      <ServiceCard data={data} key={key} />
-                    ))
-                  }
+                  {value?.data?.map((data, key) => (
+                    <>
+                    <ServiceCard data={data} key={key} />
+                    <div className="border-2 border-gray-500"></div>
+                    </>
+                    
+                  ))}
                 </div>
               ))}
             </div>
-            <div className="w-5/12 border"></div>
+            <div className="w-5/12 border-t border-gray-300 p-3">
+              <CartCard cartData={cartData} />
+              <OfferCard offerData={offerData}/>
+              <Promise/>
+            </div>
           </div>
         </div>
       </div>

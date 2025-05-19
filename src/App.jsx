@@ -10,6 +10,7 @@ import Beauty from "./pages/beauty.jsx";
 import Landing from "./pages/Landing.jsx";
 import Store from "./pages/store.jsx";
 import { Cart } from "./pages/Cart.jsx";
+import Checkout from "./pages/Checkout.jsx";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -23,6 +24,7 @@ function App() {
         <Route path="/home" element={<Home />} />
         <Route path="/store" element={<Store />} />
         <Route path="/cart" element={<Cart />} />
+        <Route path="/checkout" element={<Checkout/>}/>
       </Routes>
 
       <Footer />
